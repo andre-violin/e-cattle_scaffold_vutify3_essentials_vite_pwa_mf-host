@@ -1,16 +1,39 @@
-.DS_Store
-node_modules
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
 /dist
+/build
 
-# local env files
-.env.local
-.env.*.local
+# misc
+.DS_Store
+*.pem
 
-# Log files
+# debug
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
+
+# vercel
+.vercel
+
+# PWA
+**/public/workbox-*.js
+**/public/sw.js
+**/public/fallback-*.js
+
+# storybook
+/storybook-static
+/src/stories
+
+# typescript incremental features
+/.tsBuildInfoFile/
 
 # Editor directories and files
 .idea

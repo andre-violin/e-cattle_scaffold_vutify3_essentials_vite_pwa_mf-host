@@ -1,7 +1,7 @@
 <template>
-  <HelloWorld />
+  <AppHome />
 </template>
 
 <script setup>
-  //
+//
 </script>

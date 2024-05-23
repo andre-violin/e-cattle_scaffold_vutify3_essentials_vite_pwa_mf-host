@@ -13,6 +13,7 @@
         :icon="item.icon"
         :size="item.icon === 'custom:ecattleIcon' ? 24 : 16"
       />
+      <span class="d-none">{ item.title }</span>
     </a>
 
     <div

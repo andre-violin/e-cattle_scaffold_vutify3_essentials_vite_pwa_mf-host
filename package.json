@@ -6,7 +6,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix --ignore-path .gitignore",
-    "format:check": "prettier --check",
+    "format:check": "prettier --check .",
     "format": "prettier --write ."
   },
   "dependencies": {

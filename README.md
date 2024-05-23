@@ -2,7 +2,8 @@
     <img src="/src/assets/logo.svg" alt="e-Cattle circle logo" title="Plataforma e-Cattle" align="right" height="90" />
 </a>
 
-# Plataforma *e*-Cattle
+# Plataforma _e_-Cattle
+
 ---
 
 #### Essentials Vuetify Scafold - Base, Layouts, Pinia

@@ -37,16 +37,16 @@
 <script setup>
 const items = [
   {
-    title: "Documentação do e-Cattle",
-    icon: "custom:ecattleIcon",
-    href: "https://documentation.e-cattle.com/",
+    title: 'Documentação do e-Cattle',
+    icon: 'custom:ecattleIcon',
+    href: 'https://documentation.e-cattle.com/'
   },
   {
-    title: "e-Cattle GitHub",
-    icon: "mdi-github",
-    href: "https://github.com/e-cattle",
-  },
-];
+    title: 'e-Cattle GitHub',
+    icon: 'mdi-github',
+    href: 'https://github.com/e-cattle'
+  }
+]
 </script>
 
 <style scoped lang="sass">

@@ -8,7 +8,8 @@
     "lint": "eslint src --ext js,vue --max-warnings=0",
     "lint:fix": "eslint src --ext js,vue --fix",
     "format:check": "prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
@@ -41,5 +42,9 @@
     "vite-plugin-vue-layouts": "^0.11.0",
     "vite-plugin-vuetify": "^2.0.3",
     "vue-router": "^4.3.0"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }

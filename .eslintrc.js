@@ -7,6 +7,7 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-essential',
+    'plugin:vuejs-accessibility/recommended',
     'eslint:recommended',
     'standard',
     'prettier'
@@ -26,6 +27,6 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['vue'],
+  plugins: ['vue', 'vuejs-accessibility'],
   rules: {}
 }

@@ -28,5 +28,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['vue', 'vuejs-accessibility'],
-  rules: {}
+  rules: {
+    'vue/multi-word-component-names': 0
+  }
 }

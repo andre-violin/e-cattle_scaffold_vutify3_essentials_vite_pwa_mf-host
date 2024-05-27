@@ -18,14 +18,18 @@ export default {
   injectRegister: 'auto',
   includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
   injectManifest: {
-    globPatterns: ['**/*.{js,css,html,ico,png,svg,json,vue,txt,eot}']
+    globPatterns: [
+      '**/*.{js,css,html,ico,png,svg,json,vue,txt,woff2,woff,ttf,eot}'
+    ]
   },
   workbox: {
-    globPatterns: ['**/*.{js,css,html,ico,png,svg,json,vue,txt,eot}'],
+    globPatterns: [
+      '**/*.{js,css,html,ico,png,svg,json,vue,txt,woff2,woff,ttf,eot}'
+    ],
     globIgnores: ['**/node_modules/**/*', 'sw.js', 'workbox-*.js'],
     runtimeCaching: [
       getCache({
-        pattern: /^https:\/\/192.168.31.99:5005\/.*/i,
+        pattern: /^https:\/\/192.168.31.99:5001\/.*/i,
         name: 'assets',
         handle: 'NetworkFirst'
       }),
@@ -34,13 +38,8 @@ export default {
         name: 'https-localhost'
       }),
       getCache({
-        pattern: /materialdesignicons-webfont.0.0.0.woff2/,
-        name: 'icons-woff2'
-      }),
-      getCache({
         pattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-        name: 'google-fonts-cache',
-        handle: 'NetworkFirst'
+        name: 'google-fonts-cache'
       }),
       getCache({
         pattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,

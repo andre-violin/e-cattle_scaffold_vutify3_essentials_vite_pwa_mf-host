@@ -4,14 +4,21 @@
       <picture>
         <source
           media="(max-width: 511px)"
-          srcset="@/assets/logo_sv2wlx_c_scale_w_200.png"
+          sizes="(max-width: 511px) 60vw, 512px"
+          srcset="@/assets/logo_sv2wlx_c_scale_w_200.png 200w"
         />
         <source
           media="(min-width: 512px)"
-          srcset="@/assets/logo_sv2wlx_c_scale_w_512.png"
+          sizes="(max-width: 512px) 60vw, 512px"
+          srcset="@/assets/logo_sv2wlx_c_scale_w_512.png 512w"
         />
         <img
           class="mb-4 ma-auto d-block"
+          sizes="(max-width: 512px) 40vw, 512px"
+          srcset="
+            @/assets/logo_sv2wlx_c_scale_w_200.png 200w,
+            @/assets/logo_sv2wlx_c_scale_w_512.png 512w
+          "
           src="@/assets/logo_sv2wlx_c_scale_w_512.png"
           alt="e-Cattle logo"
         />

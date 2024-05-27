@@ -1,67 +1,51 @@
+const getCache = ({ name, pattern, handle }) => ({
+  urlPattern: pattern,
+  handler: handle || 'CacheFirst',
+  options: {
+    cacheName: name,
+    expiration: {
+      maxEntries: 500,
+      maxAgeSeconds: 60 * 60 * 24 * 365 * 2 // <== 365 days
+    },
+    cacheableResponse: {
+      statuses: [200]
+    }
+  }
+})
+
 export default {
   registerType: 'autoUpdate',
   injectRegister: 'auto',
   includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
+  injectManifest: {
+    globPatterns: ['**/*.{js,css,html,ico,png,svg,json,vue,txt,eot}']
+  },
   workbox: {
-    globPatterns: ['**/*.{js,css,html,ico,png,svg,json,vue}'],
+    globPatterns: ['**/*.{js,css,html,ico,png,svg,json,vue,txt,eot}'],
     globIgnores: ['**/node_modules/**/*', 'sw.js', 'workbox-*.js'],
     runtimeCaching: [
-      {
-        urlPattern: /^https:\/\/192\.168\.31\.99:5005\/.*/i,
-        handler: 'NetworkFirst',
-        options: {
-          cacheName: 'assets',
-          expiration: {
-            maxEntries: 500,
-            maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-          },
-          cacheableResponse: {
-            statuses: [0, 200]
-          }
-        }
-      },
-      {
-        urlPattern: /^https:\/\/localhost\/.*/i,
-        handler: 'NetworkFirst',
-        options: {
-          cacheName: 'https-localhost',
-          expiration: {
-            maxEntries: 10,
-            maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-          },
-          cacheableResponse: {
-            statuses: [0, 200]
-          }
-        }
-      },
-      {
-        urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
-        handler: 'CacheFirst',
-        options: {
-          cacheName: 'google-fonts-cache',
-          expiration: {
-            maxEntries: 10,
-            maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-          },
-          cacheableResponse: {
-            statuses: [0, 200]
-          }
-        }
-      },
-      {
-        urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
-        handler: 'CacheFirst',
-        options: {
-          cacheName: 'gstatic-fonts-cache',
-          expiration: {
-            maxEntries: 10,
-            maxAgeSeconds: 60 * 60 * 24 * 365 // <== 365 days
-          },
-          cacheableResponse: {
-            statuses: [0, 200]
-          }
-        }
-      }
+      getCache({
+        pattern: /^https:\/\/192.168.31.99:5005\/.*/i,
+        name: 'assets',
+        handle: 'NetworkFirst'
+      }),
+      getCache({
+        pattern: /^https:\/\/localhost\/.*/i,
+        name: 'https-localhost'
+      }),
+      getCache({
+        pattern: /materialdesignicons-webfont.0.0.0.woff2/,
+        name: 'icons-woff2'
+      }),
+      getCache({
+        pattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+        name: 'google-fonts-cache',
+        handle: 'NetworkFirst'
+      }),
+      getCache({
+        pattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+        name: 'gstatic-fonts-cache'
+      })
     ]
   },
   manifest: {
